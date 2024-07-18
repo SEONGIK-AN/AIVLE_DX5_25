@@ -21,7 +21,7 @@ header = stylable_container(key='header', css_styles=style.block)
 body = st.columns([1.3, 1])
 
 with header:
-    head_cols = st.columns([style.margin*5, 1.4, 6, 3, .5, style.margin*5])
+    head_cols = st.columns([style.margin*5, 1.4, 6, 5, style.margin*5])
     with head_cols[1]:
         st.container(height=5, border=False)
         space = st.empty()
@@ -35,14 +35,8 @@ with header:
         st.container(height=2, border=False)
 
 
-    with head_cols[-2]:
-        st.container(height=5, border=False)
-        with stylable_container(key='alarm', css_styles=style.alarm):
-            po = st.popover(label='🔔 1')
-            po.markdown('### Notification Test')
-
 if selected_subject=='현황':
-    with head_cols[-3]:
+    with head_cols[3]:
         st.container(height=2, border=False)
         date_resolution = st.select_slider(label='조회 간격', options=to_initial.keys(), label_visibility='collapsed')
         date_resolution = to_initial[date_resolution]
