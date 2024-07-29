@@ -1,6 +1,7 @@
 import warnings
 import threading
 import streamlit as st
+from annotated_text import annotated_text, annotation
 from streamlit_folium import st_folium
 from streamlit_extras.stylable_container import stylable_container
 from streamlit.runtime.scriptrunner import add_script_run_ctx
@@ -33,7 +34,6 @@ with header:
         st.container(height=2, border=False)
         selected_subject = st.radio('표시 정보', ['현황', '분석·예측'], horizontal=True, label_visibility='collapsed')
         st.container(height=2, border=False)
-
 
 if selected_subject=='현황':
     with head_cols[3]:
@@ -182,5 +182,6 @@ if selected_subject=='분석·예측':
                 with st.container(border=True):
                     st.write('##### Heat Map 밀도 색상막대')
                     st.image('./src/img/fish_density.png')
-
             st.container(height=2, border=False)
+
+annotated_text(annotation('본 페이지는 AIVLE 스쿨 빅프로젝트 간 제작된 가상 페이지 입니다.', font_size='30px'))
